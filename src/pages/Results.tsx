@@ -19,9 +19,9 @@ const Results: React.FC = () => {
             <section className="w-full md:w-[600px] min-h-screen bg-purple80 mx-auto px-8 py-12">
                 <h1 className="font-bold text-2xl text-center">Your results for this semester are:</h1>
                 <section className="flex justify-center py-10">
-                    <div className="w-2/4 aspect-square rounded-full border-4 border-white flex flex-col gap-8 items-center justify-center">
-                        <p className="text-purple text-[30px]">GPA:  <span className="text-white">{gpa}</span></p>
-                        <p className="text-purple text-[30px]">CGPA:  <span className="text-white">{cgpa}</span></p>
+                    <div className="w-4/5 md:w-2/4 aspect-square rounded-2xl border-4 border-white flex flex-col gap-8 items-center justify-center">
+                        <p className="text-purple text-[24px] md:text-[30px]">GPA:  <span className="text-white">{gpa.toFixed(2)}</span></p>
+                        <p className="text-purple text-[24px] md:text-[30px]">CGPA:  <span className="text-white">{cgpa.toFixed(2)}</span></p>
                     </div>
                 </section>
                 <div className="flex py-8 justify-end">
