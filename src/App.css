@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+@layer components {
+    .input {
+        @apply w-full px-4 py-2 bg-white text-black text-sm rounded border-2 border-white outline-none z-[2] placeholder:opacity-60 hover:border-purple
+    }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    .radio {
+        @apply w-[16px] h-[16px] rounded-full bg-white border-2 border-purple checked:bg-purple appearance-none
+    }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    .course-table, .course-table th, .course-table td {
+        border: 1px solid white
+    }
 }
