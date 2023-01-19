@@ -23,8 +23,10 @@ const CourseReview: React.FC = () => {
 
     let [auxillaryData, setAuxillaryData] = useState<AuxillaryData>(defAuxillary)
     let [courseData, setCourseData] = useState<SingleCourse[] | []>([])
-
+    let [isLoading, setIsLoading] = useState<boolean>(false)
+ 
     const handleCalcCGPA = async () => {
+        setIsLoading(true)
         const courseCodes = courseData.map(item => item.code)
         const courseUnits = courseData.map(item => Number(item.units))
         const courseGrades = courseData.map(item => {
@@ -47,7 +49,7 @@ const CourseReview: React.FC = () => {
         }
 
         let res = await fetch(
-            "https://calc-gpa-cgpa.onrender.com/generate_result",
+            "https://gpa-cgpa-calc.onrender.com/generate_result",
             {
                 method: "POST",
                 body: JSON.stringify(packageObj),
@@ -61,7 +63,7 @@ const CourseReview: React.FC = () => {
         let dataString = await res.text()
         let data: Data = JSON.parse(dataString)
         console.log(data)
-
+        setIsLoading(false)
         setGPA(data["GPA"])
         setCGPA(data["CGPA"])
         navigate("/results")
@@ -148,7 +150,7 @@ const CourseReview: React.FC = () => {
                     <button type="button" onClick={handleCalcCGPA} className="text-white outline-none border-none bg-purple py-3 px-8 
                         rounded-md no-underline active:scale-95 hover:scale-105 font-semibold" 
                     >
-                        Confirm Data
+                        {isLoading ? "Loading..." : "Confirm Data" }
                     </button>
                 </div>
             </section>

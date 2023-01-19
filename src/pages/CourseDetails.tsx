@@ -57,7 +57,7 @@ const CourseDetails: React.FC = () => {
                 })
 
                 if (name === "prevCGPA") {
-                    if (!(/^[0-4](\.\d+)?$/g.test(e.target.value)) || (/^5(\.0+)?$/g.test(e.target.value))) {
+                    if (!((/^[0-4](\.\d+)?$/g.test(e.target.value)) || (/^5(\.0+)?$/g.test(e.target.value)))) {
                         throw new Error("Invalid CGPA format")
                     }
                 }
