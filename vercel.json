@@ -1,0 +1,17 @@
+{
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers" : [
+            {
+                "key": "X-Robots-Tag",
+                "value": "index"
+            },
+            {
+                "key": "Link",
+                "value": " < https://cgpa-calc-rho.vercel.app >; rel=\"canonical\""
+            }
+        ]
+      }
+    ]
+}
