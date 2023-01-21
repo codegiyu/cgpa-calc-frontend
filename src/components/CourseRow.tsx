@@ -39,7 +39,7 @@ const CourseRow: React.FC<Props> = (props) => {
         type: "text",
         name: `code${index}`,
         value: values.code,
-        placeholder: "e.g GST101",
+        placeholder: "e.g ABC101",
         errorVal: values.codeError,
         handleInputChange,
     }
