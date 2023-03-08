@@ -47,31 +47,34 @@ const CourseReview: React.FC = () => {
             course_units: courseUnits,
             grades: courseGrades
         }
-        console.log("https://cal-cgpa.adaptable.app/generate_result")
 
-        let res = await fetch(
-            "https://cal-cgpa.adaptable.app/generate_result",
-            {
-                method: "POST",
-                body: JSON.stringify(packageObj),
-                headers: {
-                    "Content-Type": "application/json",
+        try {
+            let res = await fetch(
+                "https://cal-cgpa.adaptable.app/generate_result",
+                {
+                    method: "POST",
+                    body: JSON.stringify(packageObj),
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
                 }
+            )
+    
+            console.log(res)
+            if (res.status === 200) {
+                let dataString = await res.text()
+                let data: Data = JSON.parse(dataString)
+                console.log(data)
+                setIsLoading(false)
+                setGPA(data["GPA"])
+                setCGPA(data["CGPA"])
+                navigate("/results")
+            } else {
+                setIsLoading(false)
+                throw new Error(res.statusText)
             }
-        )
-
-        console.log(res)
-        if (res.status === 200) {
-            let dataString = await res.text()
-            let data: Data = JSON.parse(dataString)
-            console.log(data)
-            setIsLoading(false)
-            setGPA(data["GPA"])
-            setCGPA(data["CGPA"])
-            navigate("/results")
-        } else {
-            setIsLoading(false)
-            alert(res.statusText || "CORS Error")
+        } catch (error: any) {
+            alert(error.message)
         }
     }
 
