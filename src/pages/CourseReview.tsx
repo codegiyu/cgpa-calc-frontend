@@ -47,6 +47,7 @@ const CourseReview: React.FC = () => {
             course_units: courseUnits,
             grades: courseGrades
         }
+        console.log("https://cal-cgpa.adaptable.app/generate_result")
 
         let res = await fetch(
             "https://cal-cgpa.adaptable.app/generate_result",
@@ -60,13 +61,18 @@ const CourseReview: React.FC = () => {
         )
 
         console.log(res)
-        let dataString = await res.text()
-        let data: Data = JSON.parse(dataString)
-        console.log(data)
-        setIsLoading(false)
-        setGPA(data["GPA"])
-        setCGPA(data["CGPA"])
-        navigate("/results")
+        if (res.status === 200) {
+            let dataString = await res.text()
+            let data: Data = JSON.parse(dataString)
+            console.log(data)
+            setIsLoading(false)
+            setGPA(data["GPA"])
+            setCGPA(data["CGPA"])
+            navigate("/results")
+        } else {
+            setIsLoading(false)
+            alert(res.statusText || "CORS Error")
+        }
     }
 
     useEffect(() => {
