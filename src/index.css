@@ -806,10 +806,6 @@ video {
   border-radius: 0.375rem;
 }
 
-.rounded-lg{
-  border-radius: 0.5rem;
-}
-
 .rounded-2xl{
   border-radius: 1rem;
 }
@@ -1108,10 +1104,6 @@ video {
 
   .md\:gap-5{
     gap: 1.25rem;
-  }
-
-  .md\:rounded-full{
-    border-radius: 9999px;
   }
 
   .md\:border-none{

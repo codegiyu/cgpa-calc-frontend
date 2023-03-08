@@ -49,7 +49,7 @@ const CourseReview: React.FC = () => {
         }
 
         let res = await fetch(
-            "https://gpa-cgpa-calc.onrender.com/generate_result",
+            "https://cal-cgpa.adaptable.app/generate_result",
             {
                 method: "POST",
                 body: JSON.stringify(packageObj),
