@@ -46,7 +46,7 @@ const CourseRow: React.FC<Props> = (props) => {
 
     let unitProps = {
         label: "Units",
-        type: "text",
+        type: "number",
         name: `units${index}`,
         value: values.units,
         placeholder: "Credit load",

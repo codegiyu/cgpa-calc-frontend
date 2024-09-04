@@ -282,7 +282,7 @@ const CourseDetails: React.FC = () => {
 
     let numberProps = {
         label: "Number of Courses",
-        type: "text",
+        type: "number",
         name: "courses",
         value: auxillaryData.courses,
         placeholder: "Number of courses this semester",
@@ -292,7 +292,7 @@ const CourseDetails: React.FC = () => {
 
     let prevCGPAProps = {
         label: "Previous CGPA",
-        type: "text",
+        type: "number",
         name: "prevCGPA",
         value: auxillaryData.prevCGPA,
         placeholder: "Enter your previous CGPA",
@@ -303,6 +303,7 @@ const CourseDetails: React.FC = () => {
     useEffect(() => {
         setCourseData(globalCourses)
         setAuxillaryData(globalAuxillary)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

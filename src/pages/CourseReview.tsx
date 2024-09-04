@@ -50,7 +50,7 @@ const CourseReview: React.FC = () => {
 
         try {
             let res = await fetch(
-                "https://cal-cgpa.adaptable.app/generate_result",
+                "http://api9.0xtech-wiz.tech/generate_result",
                 {
                     method: "POST",
                     body: JSON.stringify(packageObj),
@@ -81,6 +81,7 @@ const CourseReview: React.FC = () => {
     useEffect(() => {
         setCourseData(globalCourses)
         setAuxillaryData(globalAuxillary)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
