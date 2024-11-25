@@ -13,6 +13,8 @@ interface Data {
     grades: number[];
 }
 
+export const backendUrl = 'https://dtgamer.pythonanywhere.com';
+
 const CourseReview: React.FC = () => {
     let navigate = useNavigate()
 
@@ -50,7 +52,7 @@ const CourseReview: React.FC = () => {
 
         try {
             let res = await fetch(
-                "http://api9.0xtech-wiz.tech/generate_result",
+                `${backendUrl}/generate_result`,
                 {
                     method: "POST",
                     body: JSON.stringify(packageObj),
