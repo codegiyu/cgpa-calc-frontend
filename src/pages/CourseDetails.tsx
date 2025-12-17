@@ -167,7 +167,6 @@ const CourseDetails: React.FC = () => {
     const handleAddRow = () => {
         setCourseData((prevState) => {
             let array = [...prevState, defaultCourse]
-            console.log(array)
             return array
         })
         setAuxillaryData((prevState) => {
@@ -223,11 +222,8 @@ const CourseDetails: React.FC = () => {
 
         if(auxillaryisComplete()) {
             if (auxillaryisErrorFree()) {
-                console.log("free")
                 if (coursesAreComplete()) {
-                    console.log("complete")
                     if (coursesAreErrorFree()) {
-                        console.log("done")
                         setGlobalAuxillary(auxillaryData)
                         setGlobalCourses(courseData)
                         navigate("/course-review")

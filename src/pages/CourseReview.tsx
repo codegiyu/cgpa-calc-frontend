@@ -62,11 +62,10 @@ const CourseReview: React.FC = () => {
                 }
             )
     
-            console.log(res)
             if (res.status === 200) {
                 let dataString = await res.text()
                 let data: Data = JSON.parse(dataString)
-                console.log(data)
+
                 setIsLoading(false)
                 setGPA(data["GPA"])
                 setCGPA(data["CGPA"])
