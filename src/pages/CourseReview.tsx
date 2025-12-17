@@ -13,7 +13,7 @@ interface Data {
     grades: number[];
 }
 
-export const backendUrl = 'https://dtgamer.pythonanywhere.com';
+export const backendUrl = 'https://magic.myradture.com';
 
 const CourseReview: React.FC = () => {
     let navigate = useNavigate()
